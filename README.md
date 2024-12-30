@@ -7,7 +7,7 @@ Tested with
 - Windows 11
 
 Project configuration
-= Android compileSdk 34, minSdk 29, targetSdk 33
+- Android compileSdk 34, minSdk 29, targetSdk 33
 - gradle 8.9
 
 I am using Windows so I don't if it can run right away on other platforms. If Android Studio prompts you to fix something, just press yes and things should be good.
