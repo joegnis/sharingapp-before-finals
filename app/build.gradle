@@ -1,0 +1,59 @@
+/**
+ * The first line in the build configuration applies the Android Gradle plugin
+ * to this build and makes the android block available to specify
+ * Android-specific build options.
+ */
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    /**
+     * The app's namespace. Used primarily to access app resources.
+     */
+    namespace 'com.example.sharingapp'
+    compileSdk 34
+    defaultConfig {
+        // Uniquely identifies the package for publishing.
+        applicationId 'com.example.sharingapp'
+        minSdk 29
+
+        // Defines the minimum API level required to run the app.
+
+        // Specifies the API level used to test the app.
+        targetSdk 33
+
+        // Defines the version number of your app.
+        versionCode 1
+
+        // Defines a user-friendly version name for your app.
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        /**
+         * By default, Android Studio configures the release build type to enable code
+         * shrinking, using minifyEnabled, and specifies the default ProGuard rules file.
+         */
+
+        release {
+            minifyEnabled true // Enables code shrinking for the release build type.
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation files('src/include/gson-2.8.2-SNAPSHOT.jar')
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    testImplementation 'junit:junit:4.12'
+}
